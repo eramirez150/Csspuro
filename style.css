@@ -1,9 +1,97 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+/* Contenedores flexibles */
 .contenedor {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 10px;
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Primer contenedor: Cuadros con Box Model */
+.contenedor:nth-child(1) {
+    flex-direction: column;
+    align-items: center;
+}
+
+.cuadro {
+    width: 150px;
+    height: 100px;
+    background-color: #4CAF50;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 2px solid #388E3C;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    transition: transform 0.3s ease;
+}
+
+.cuadro:hover {
+    transform: translateY(-5px);
+}
+
+/* Segundo contenedor: Items básicos */
+.contenedor:nth-child(2) {
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .item {
-  background: tomato;
+    padding: 15px 25px;
+    background-color: #2196F3;
+    color: white;
+    border-radius: 4px;
+    min-width: 120px;
+    text-align: center;
+}
+
+/* Tercer contenedor: Frutas */
+.contenedor.frutas {
+    flex-direction: column;
+    align-items: center;
+    background-color: #FFEB3B;
+}
+
+.contenedor.frutas .item {
+    background-color: transparent;
+    color: #333;
+    padding: 10px;
+    font-size: 1.5rem;
+}
+
+.contenedor.frutas h1 {
+    font-size: 2rem;
+    margin: 10px 0;
+    color: #E91E63;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive: Cambia a fila en pantallas grandes */
+@media (min-width: 768px) {
+    .contenedor:nth-child(1),
+    .contenedor.frutas {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .contenedor.frutas .item {
+        margin: 0 15px;
+    }
 }
